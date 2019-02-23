@@ -75,17 +75,21 @@ namespace ArenaMatcher
                     {
                         if (playerListWithoutMe[k].curRate < this.lowRatingBound ||
                             playerListWithoutMe[k].curRate > this.highRatingBound) continue;
+                        bool foundPlayer = false;
                         for (int l = remainingSpecs.Count - 1; l >= 0; l--)
                         {
                             if (playerListWithoutMe[k].CanBeSpec(remainingSpecs[l]))
                             {
                                 currentTeam.Add(playerListWithoutMe[k]);
                                 remainingSpecs.RemoveAt(l);
-                                playerListWithoutMe.RemoveAt(k);
+                                foundPlayer = true;
                                 if (playerListWithoutMe.Count == 0)
                                     break;
                             }
                         }
+
+                        if (foundPlayer)
+                            playerListWithoutMe.RemoveAt(k);
                     }
 
                     if (currentTeam.Count == viableComps[i].Comp.Length)
