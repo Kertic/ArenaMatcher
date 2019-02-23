@@ -2502,145 +2502,127 @@ namespace ArenaMatcher
         public static bool[] GenerateSpecs(string[] playerLine)
         {
             bool[] possibleClasses = new bool[(int) ClassSpec.NUMOFCLASSSPEC];
-            switch (playerLine[(int) PlayerInfoIndexes.CLASS])
-            {
-                case "Death Knight":
 
-                    if (playerLine[(int) PlayerInfoIndexes.DKSPEC].Contains("Unholy"))
-                        possibleClasses[(int) ClassSpec.UNHOLYDK] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.DKSPEC].Contains("Blood"))
-                        possibleClasses[(int) ClassSpec.BLOODDK] = true;
+            if (playerLine[(int) PlayerInfoIndexes.DKSPEC].Contains("Unholy"))
+                possibleClasses[(int) ClassSpec.UNHOLYDK] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.DKSPEC].Contains("Frost"))
-                        possibleClasses[(int) ClassSpec.FROSTDK] = true;
+            if (playerLine[(int) PlayerInfoIndexes.DKSPEC].Contains("Blood"))
+                possibleClasses[(int) ClassSpec.BLOODDK] = true;
 
-                    break;
-                case "Demon Hunter":
+            if (playerLine[(int) PlayerInfoIndexes.DKSPEC].Contains("Frost"))
+                possibleClasses[(int) ClassSpec.FROSTDK] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.DHSPEC].Contains("Vengeance"))
-                        possibleClasses[(int) ClassSpec.VENGDH] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.DHSPEC].Contains("Havoc"))
-                        possibleClasses[(int) ClassSpec.HAVOCDH] = true;
+            if (playerLine[(int) PlayerInfoIndexes.DHSPEC].Contains("Vengeance"))
+                possibleClasses[(int) ClassSpec.VENGDH] = true;
 
-                    break;
-                case "Druid":
+            if (playerLine[(int) PlayerInfoIndexes.DHSPEC].Contains("Havoc"))
+                possibleClasses[(int) ClassSpec.HAVOCDH] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.DRUIDSPEC].Contains("Guardian"))
-                        possibleClasses[(int) ClassSpec.GUARDDRUID] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.DRUIDSPEC].Contains("Balance"))
-                        possibleClasses[(int) ClassSpec.BALANCEDRUID] = true;
+            if (playerLine[(int) PlayerInfoIndexes.DRUIDSPEC].Contains("Guardian"))
+                possibleClasses[(int) ClassSpec.GUARDDRUID] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.DRUIDSPEC].Contains("Restoration"))
-                        possibleClasses[(int) ClassSpec.RESTODRUID] = true;
+            if (playerLine[(int) PlayerInfoIndexes.DRUIDSPEC].Contains("Balance"))
+                possibleClasses[(int) ClassSpec.BALANCEDRUID] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.DRUIDSPEC].Contains("Feral"))
-                        possibleClasses[(int) ClassSpec.FERALDRUID] = true;
+            if (playerLine[(int) PlayerInfoIndexes.DRUIDSPEC].Contains("Restoration"))
+                possibleClasses[(int) ClassSpec.RESTODRUID] = true;
 
-                    break;
-                case "Hunter":
+            if (playerLine[(int) PlayerInfoIndexes.DRUIDSPEC].Contains("Feral"))
+                possibleClasses[(int) ClassSpec.FERALDRUID] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.HUNTSPEC].Contains("Survival"))
-                        possibleClasses[(int) ClassSpec.SURVIVALHUNT] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.HUNTSPEC].Contains("Marksman"))
-                        possibleClasses[(int) ClassSpec.MARKSMANHUNT] = true;
+            if (playerLine[(int) PlayerInfoIndexes.HUNTSPEC].Contains("Survival"))
+                possibleClasses[(int) ClassSpec.SURVIVALHUNT] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.HUNTSPEC].Contains("Beast Mastery"))
-                        possibleClasses[(int) ClassSpec.BEASTHUNT] = true;
+            if (playerLine[(int) PlayerInfoIndexes.HUNTSPEC].Contains("Marksman"))
+                possibleClasses[(int) ClassSpec.MARKSMANHUNT] = true;
 
-                    break;
-                case "Mage":
-                    if (playerLine[(int) PlayerInfoIndexes.MAGESPEC].Contains("Frost"))
-                        possibleClasses[(int) ClassSpec.FROSTMAGE] = true;
+            if (playerLine[(int) PlayerInfoIndexes.HUNTSPEC].Contains("Beast Mastery"))
+                possibleClasses[(int) ClassSpec.BEASTHUNT] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.MAGESPEC].Contains("Arcane"))
-                        possibleClasses[(int) ClassSpec.ARCANEMAGE] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.MAGESPEC].Contains("Fire"))
-                        possibleClasses[(int) ClassSpec.FIREMAGE] = true;
+            if (playerLine[(int) PlayerInfoIndexes.MAGESPEC].Contains("Frost"))
+                possibleClasses[(int) ClassSpec.FROSTMAGE] = true;
 
-                    break;
-                case "Monk":
-                    if (playerLine[(int) PlayerInfoIndexes.MONKSPEC].Contains("Windwalker"))
-                        possibleClasses[(int) ClassSpec.WWMONK] = true;
+            if (playerLine[(int) PlayerInfoIndexes.MAGESPEC].Contains("Arcane"))
+                possibleClasses[(int) ClassSpec.ARCANEMAGE] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.MONKSPEC].Contains("Mistweaver"))
-                        possibleClasses[(int) ClassSpec.MWMONK] = true;
+            if (playerLine[(int) PlayerInfoIndexes.MAGESPEC].Contains("Fire"))
+                possibleClasses[(int) ClassSpec.FIREMAGE] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.MONKSPEC].Contains("Brewmaster"))
-                        possibleClasses[(int) ClassSpec.BREWMONK] = true;
 
-                    break;
-                case "Paladin":
-                    if (playerLine[(int) PlayerInfoIndexes.PALADINSPEC].Contains("Retribution"))
-                        possibleClasses[(int) ClassSpec.RETPALADIN] = true;
+            if (playerLine[(int) PlayerInfoIndexes.MONKSPEC].Contains("Windwalker"))
+                possibleClasses[(int) ClassSpec.WWMONK] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.PALADINSPEC].Contains("Holy"))
-                        possibleClasses[(int) ClassSpec.HOLYPALADIN] = true;
+            if (playerLine[(int) PlayerInfoIndexes.MONKSPEC].Contains("Mistweaver"))
+                possibleClasses[(int) ClassSpec.MWMONK] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.PALADINSPEC].Contains("Protection"))
-                        possibleClasses[(int) ClassSpec.PROTPALADIN] = true;
+            if (playerLine[(int) PlayerInfoIndexes.MONKSPEC].Contains("Brewmaster"))
+                possibleClasses[(int) ClassSpec.BREWMONK] = true;
 
-                    break;
-                case "Priest":
-                    if (playerLine[(int) PlayerInfoIndexes.PRIESTSPEC].Contains("Holy"))
-                        possibleClasses[(int) ClassSpec.HOLYPRIEST] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.PRIESTSPEC].Contains("Discipline"))
-                        possibleClasses[(int) ClassSpec.DISCPRIEST] = true;
+            if (playerLine[(int) PlayerInfoIndexes.PALADINSPEC].Contains("Retribution"))
+                possibleClasses[(int) ClassSpec.RETPALADIN] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.PRIESTSPEC].Contains("Shadow"))
-                        possibleClasses[(int) ClassSpec.SHADOWPRIEST] = true;
+            if (playerLine[(int) PlayerInfoIndexes.PALADINSPEC].Contains("Holy"))
+                possibleClasses[(int) ClassSpec.HOLYPALADIN] = true;
 
-                    break;
-                case "Rogue":
-                    if (playerLine[(int) PlayerInfoIndexes.ROGUESPEC].Contains("Subtlety"))
-                        possibleClasses[(int) ClassSpec.SUBROGUE] = true;
+            if (playerLine[(int) PlayerInfoIndexes.PALADINSPEC].Contains("Protection"))
+                possibleClasses[(int) ClassSpec.PROTPALADIN] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.ROGUESPEC].Contains("Assassination"))
-                        possibleClasses[(int) ClassSpec.ASSROGUE] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.ROGUESPEC].Contains("Outlaw"))
-                        possibleClasses[(int) ClassSpec.OUTLAWROGUE] = true;
+            if (playerLine[(int) PlayerInfoIndexes.PRIESTSPEC].Contains("Holy"))
+                possibleClasses[(int) ClassSpec.HOLYPRIEST] = true;
 
-                    break;
-                case "Shaman":
-                    if (playerLine[(int) PlayerInfoIndexes.SHAMSPEC].Contains("Resto"))
-                        possibleClasses[(int) ClassSpec.RESTOSHAM] = true;
+            if (playerLine[(int) PlayerInfoIndexes.PRIESTSPEC].Contains("Discipline"))
+                possibleClasses[(int) ClassSpec.DISCPRIEST] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.SHAMSPEC].Contains("Enhance"))
-                        possibleClasses[(int) ClassSpec.ENHSHAM] = true;
+            if (playerLine[(int) PlayerInfoIndexes.PRIESTSPEC].Contains("Shadow"))
+                possibleClasses[(int) ClassSpec.SHADOWPRIEST] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.SHAMSPEC].Contains("Ele"))
-                        possibleClasses[(int) ClassSpec.ELESHAM] = true;
 
-                    break;
-                case "Warlock":
-                    if (playerLine[(int) PlayerInfoIndexes.WARLOCKSPEC].Contains("Destruction"))
-                        possibleClasses[(int) ClassSpec.DESTROLOCK] = true;
+            if (playerLine[(int) PlayerInfoIndexes.ROGUESPEC].Contains("Subtlety"))
+                possibleClasses[(int) ClassSpec.SUBROGUE] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.WARLOCKSPEC].Contains("Affliction"))
-                        possibleClasses[(int) ClassSpec.AFFLOCK] = true;
+            if (playerLine[(int) PlayerInfoIndexes.ROGUESPEC].Contains("Assassination"))
+                possibleClasses[(int) ClassSpec.ASSROGUE] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.WARLOCKSPEC].Contains("Demon"))
-                        possibleClasses[(int) ClassSpec.DEMOLOCK] = true;
+            if (playerLine[(int) PlayerInfoIndexes.ROGUESPEC].Contains("Outlaw"))
+                possibleClasses[(int) ClassSpec.OUTLAWROGUE] = true;
 
-                    break;
-                case "Warrior":
-                    if (playerLine[(int) PlayerInfoIndexes.WARSPEC].Contains("Arm"))
-                        possibleClasses[(int) ClassSpec.ARMSWARRIOR] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.WARSPEC].Contains("Fury"))
-                        possibleClasses[(int) ClassSpec.FURYWARRIOR] = true;
+            if (playerLine[(int) PlayerInfoIndexes.SHAMSPEC].Contains("Resto"))
+                possibleClasses[(int) ClassSpec.RESTOSHAM] = true;
 
-                    if (playerLine[(int) PlayerInfoIndexes.WARSPEC].Contains("Protection"))
-                        possibleClasses[(int) ClassSpec.PROTWARRIOR] = true;
+            if (playerLine[(int) PlayerInfoIndexes.SHAMSPEC].Contains("Enhance"))
+                possibleClasses[(int) ClassSpec.ENHSHAM] = true;
 
-                    break;
-            }
+            if (playerLine[(int) PlayerInfoIndexes.SHAMSPEC].Contains("Ele"))
+                possibleClasses[(int) ClassSpec.ELESHAM] = true;
+
+
+            if (playerLine[(int) PlayerInfoIndexes.WARLOCKSPEC].Contains("Destruction"))
+                possibleClasses[(int) ClassSpec.DESTROLOCK] = true;
+
+            if (playerLine[(int) PlayerInfoIndexes.WARLOCKSPEC].Contains("Affliction"))
+                possibleClasses[(int) ClassSpec.AFFLOCK] = true;
+
+            if (playerLine[(int) PlayerInfoIndexes.WARLOCKSPEC].Contains("Demon"))
+                possibleClasses[(int) ClassSpec.DEMOLOCK] = true;
+
+
+            if (playerLine[(int) PlayerInfoIndexes.WARSPEC].Contains("Arm"))
+                possibleClasses[(int) ClassSpec.ARMSWARRIOR] = true;
+
+            if (playerLine[(int) PlayerInfoIndexes.WARSPEC].Contains("Fury"))
+                possibleClasses[(int) ClassSpec.FURYWARRIOR] = true;
+
+            if (playerLine[(int) PlayerInfoIndexes.WARSPEC].Contains("Protection"))
+                possibleClasses[(int) ClassSpec.PROTWARRIOR] = true;
+
 
             return possibleClasses;
         }
